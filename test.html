@@ -1,0 +1,46 @@
+<body
+  class="text-foreground group/body __variable_5cfdac __variable_224a03 __variable_e8ce0c theme-default overscroll-none font-sans antialiased [--footer-height:calc(var(--spacing)*14)] [--header-height:calc(var(--spacing)*14)] xl:[--footer-height:calc(var(--spacing)*24)]"
+>
+  <div class="bg-background relative z-10 flex min-h-svh flex-col">
+    <header class="bg-background sticky top-0 z-50 w-full">
+      <div class="container-wrapper 3xl:fixed:px-0 px-6">
+        <div
+          class="3xl:fixed:container flex h-(--header-height) items-center gap-2 **:data-[slot=separator]:!h-4"
+        ></div>
+      </div>
+    </header>
+    <main class="flex flex-1 flex-col">
+      <div class="container-wrapper flex flex-1 flex-col px-2">
+        <div
+          data-slot="sidebar-wrapper"
+          class="group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar 3xl:fixed:container 3xl:fixed:px-3 flex min-h-min w-full flex-1 items-start px-0 [--sidebar-width:220px] [--top-spacing:0] lg:grid lg:grid-cols-[var(--sidebar-width)_minmax(0,1fr)] lg:[--sidebar-width:240px] lg:[--top-spacing:calc(var(--spacing)*4)]"
+          style="--sidebar-width: 16rem; --sidebar-width-icon: 3rem"
+        >
+          <div
+            data-slot="sidebar"
+            class="text-sidebar-foreground sticky top-[calc(var(--header-height)+1px)] z-30 hidden h-[calc(100svh-var(--header-height)-var(--footer-height))] w-(--sidebar-width) flex-col bg-transparent lg:flex"
+          >
+            <div
+              data-slot="sidebar-content"
+              data-sidebar="content"
+              class="no-scrollbar flex min-h-0 flex-1 flex-col gap-2 overflow-auto px-2 pb-12 group-data-[collapsible=icon]:overflow-hidden"
+            >
+              <div class="h-(--top-spacing) shrink-0"></div>
+            </div>
+          </div>
+          <div class="h-full w-full">
+            <div
+              data-slot="docs"
+              class="flex items-stretch text-[1.05rem] sm:text-[15px] xl:w-full"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer
+      class="group-has-[.section-soft]/body:bg-surface/40 3xl:fixed:bg-transparent group-has-[.docs-nav]/body:pb-20 group-has-[.docs-nav]/body:sm:pb-0 dark:bg-transparent"
+    >
+      <div class="container-wrapper px-4 xl:px-6"></div>
+    </footer>
+  </div>
+</body>

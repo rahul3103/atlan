@@ -204,7 +204,7 @@ export default function Home() {
             {/* Data Display */}
             {currentView === "table" && (
               <DynamicDataTable
-                key={headers.map(h => h.key).join(',')}
+                key={headers.map((h) => h.key).join(",")}
                 headers={headers}
                 rows={rows}
                 isLoading={isLoading}
@@ -213,7 +213,7 @@ export default function Home() {
             )}
 
             {(currentView === "bar-chart" || currentView === "line-chart") && (
-              <div className="flex gap-6">
+              <div className="flex flex-col-reverse gap-6 md:flex-row">
                 <div className="flex-1">
                   {currentView === "bar-chart" && (
                     <ChartBar
@@ -234,7 +234,7 @@ export default function Home() {
                     />
                   )}
                 </div>
-                <div className="w-80">
+                <div className="w-full md:w-80">
                   <AxisSelector
                     headers={headers}
                     xAxis={xAxis}

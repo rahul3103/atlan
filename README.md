@@ -30,6 +30,10 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Walkthrough Link
+
+Open [Loom link](https://www.loom.com/share/07e281a2062b4ad39a49cee48d156fa0?sid=73eebfda-bf4c-4c0e-a53a-3a4905639ba6) to view the walkthrough.
+
 ## Page Load Time & Measurements
 
 ## Features

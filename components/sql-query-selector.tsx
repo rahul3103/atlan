@@ -2,8 +2,8 @@
 
 import * as React from "react";
 
-import { CopyButton } from "@/components/copy-button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CopyButton } from "@/components/copy-button";
 
 const predefinedQueries = {
   "all-customers": {
@@ -33,14 +33,13 @@ const predefinedQueries = {
 };
 
 export function SQLQuerySelector() {
-  const [activeQuery, setActiveQuery] = React.useState<
-    keyof typeof predefinedQueries
-  >("all-orders");
+  const [activeQuery, setActiveQuery] =
+    React.useState<keyof typeof predefinedQueries>("all-customers");
   const [hasCopied, setHasCopied] = React.useState(false);
 
   React.useEffect(() => {
     if (hasCopied) {
-      const timer = setTimeout(() => setHasCopied(false), 2000);
+      const timer = setTimeout(() => setHasCopied(false), 1000);
       return () => clearTimeout(timer);
     }
   }, [hasCopied]);
@@ -57,7 +56,7 @@ export function SQLQuerySelector() {
             className="gap-0"
           >
             <div className="border-border/50 flex items-center gap-2 border-b px-3 py-1">
-              <TabsList className="rounded-none bg-transparent p-0 no-scrollbar overflow-x-auto justify-normal">
+              <TabsList className="no-scrollbar justify-normal overflow-x-auto rounded-none bg-transparent p-0">
                 {Object.entries(predefinedQueries).map(([key, { name }]) => {
                   return (
                     <TabsTrigger

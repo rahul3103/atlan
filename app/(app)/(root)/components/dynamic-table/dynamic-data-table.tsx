@@ -88,6 +88,14 @@ export function DynamicDataTable({
   );
   const [sorting, setSorting] = React.useState<SortingState>([]);
 
+  // Reset table state when headers change (new query with different structure)
+  React.useEffect(() => {
+    setRowSelection({});
+    setColumnVisibility({});
+    setColumnFilters([]);
+    setSorting([]);
+  }, [headers]);
+
   const table = useReactTable({
     data,
     columns,
@@ -99,7 +107,7 @@ export function DynamicDataTable({
     },
     initialState: {
       pagination: {
-        pageSize: 25,
+        pageSize: 10,
       },
     },
     enableRowSelection: showSelection,
@@ -158,23 +166,21 @@ export function DynamicDataTable({
       
       {/* Table Info */}
       <div className="flex items-center justify-between">
-        {showSelection && (
+        {showSelection && table.getFilteredSelectedRowModel().rows.length > 0 && (
           <div className="flex items-center gap-4">
             <div className="text-sm text-gray-600">
               {table.getFilteredSelectedRowModel().rows.length} of{" "}
               {table.getFilteredRowModel().rows.length} row(s) selected
             </div>
-            {table.getFilteredSelectedRowModel().rows.length > 0 && (
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleDownloadSelected}
-                className="h-8"
-              >
-                <Download className="h-4 w-4 mr-2" />
-                Download Selected CSV
-              </Button>
-            )}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleDownloadSelected}
+              className="h-8"
+            >
+              <Download className="h-4 w-4 mr-2" />
+              Download Selected CSV
+            </Button>
           </div>
         )}
       </div>
